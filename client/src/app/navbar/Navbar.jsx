@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
 const Navbar = (props) => {
   return (
@@ -9,10 +10,17 @@ const Navbar = (props) => {
         <ul>
           <li><Link to="/">Signin</Link></li>
           <li><Link to="/restaurants">Restaurants</Link></li>
+          <li><span>{props.username}</span></li>
         </ul>
       </nav>
     </header>
   );
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    username: 'anon',
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);

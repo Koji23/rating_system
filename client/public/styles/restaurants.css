@@ -4,25 +4,20 @@
   width: 60%;
   margin: 1em auto;
   border: 1px solid black;
-  border-radius: 15px;
-  .subHeader {
+  border-radius: 15px; }
+  .restaurantsList .subHeader {
     display: block;
-    margin: 1em auto;
-  }
-  li {
+    margin: 1em auto; }
+  .restaurantsList li {
     list-style-type: none;
     border: 1px solid black;
     border-radius: 10px;
     width: 90%;
-    padding: 0.5em;
-  }
-  .restaurantsListEntry {
+    padding: 0.5em; }
+  .restaurantsList .restaurantsListEntry {
     display: flex;
-    flex-direction: column;
-    img {
+    flex-direction: column; }
+    .restaurantsList .restaurantsListEntry img {
       border-radius: 5px;
       height: 15  0px;
-      width: 200px;
-    }
-  }
-}
+      width: 200px; }

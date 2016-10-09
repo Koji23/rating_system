@@ -1,3 +1,19 @@
+
+Start up instructions:
+0. client fetch url update...
+1.) create a MySQL database on Localhost
+2.) input MySQL database connection details in ./server/config/secrets.js
+    (this file will be ignored by git)
+3.) npm install
+4.) npm start
+5.) Once the app is running you can choose to signup as a new user or login 
+    with the default credentials provided below:
+    username: 'anon'
+    password: '1234' 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 Build a rating system
 
 Design a rating system that will be used to rate restaurants.
