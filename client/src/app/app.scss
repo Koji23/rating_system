@@ -1,6 +1,10 @@
-.container {
-
+.flexbox .container {
+  display: flex;
+  flex-direction: column;
+  font-family: $main-font;
+  font-weight: 300;
 }
 
 @import './navbar/navbar';
 @import './restaurants/restaurants';
+@import './signin/signin';

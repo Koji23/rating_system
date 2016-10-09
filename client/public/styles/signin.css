@@ -1,8 +1,8 @@
 .signin {
   display: flex;
   justify-content: center;
-  margin-top: 3em;
-  form {
+  margin-top: 3em; }
+  .signin form {
     display: flex;
     flex-direction: column;
     margin: 1em;
@@ -10,16 +10,12 @@
     width: 60%;
     align-items: center;
     padding-bottom: 3em;
-    border-radius: 15px;
-    input {
+    border-radius: 15px; }
+    .signin form input {
       width: 50%;
       margin: 0.5em;
-      font-size:1.2em;
-      border-radius: 5px;
-    }
-    label {
+      font-size: 1.2em;
+      border-radius: 5px; }
+    .signin form label {
       align-self: flex-start;
-      margin-left: 25%;
-    }
-  }
-}
+      margin-left: 25%; }

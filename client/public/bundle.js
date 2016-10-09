@@ -30320,7 +30320,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var NavBar = function NavBar(props) {
+	var Navbar = function Navbar(props) {
 	  return _react2.default.createElement(
 	    'header',
 	    null,
@@ -30358,15 +30358,13 @@
 	  );
 	};
 	
-	exports.default = NavBar;
-	// <li><Link to="/login">Login</Link></li>
-	// <li><Link to="/signUp">Sign Up</Link></li>
+	exports.default = Navbar;
 
 /***/ },
 /* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -30402,47 +30400,109 @@
 	  }
 	
 	  _createClass(Signin, [{
-	    key: "handleSignup",
-	    value: function handleSignup() {}
+	    key: 'handleSignup',
+	    value: function handleSignup(e, username, password, passwordConfirm) {
+	      e.preventDefault();
+	      console.log(username, password, passwordConfirm);
+	    }
 	  }, {
-	    key: "handleLogin",
-	    value: function handleLogin() {}
+	    key: 'handleLogin',
+	    value: function handleLogin(e, username, password) {
+	      e.preventDefault();
+	      console.log(username.value, password.value);
+	    }
 	  }, {
-	    key: "toggleForm",
+	    key: 'toggleForm',
 	    value: function toggleForm() {
 	      this.setState({
 	        hasAccount: !this.state.hasAccount
 	      });
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
+	      var username = '';
+	      var password = '';
+	      var passwordConfirm = '';
 	      var Login = _react2.default.createElement(
-	        "form",
-	        { className: "login" },
-	        _react2.default.createElement("input", { type: "text" }),
-	        _react2.default.createElement("input", { type: "password" }),
+	        'form',
+	        { className: 'login' },
 	        _react2.default.createElement(
-	          "a",
-	          { href: "#", onClick: this.toggleForm },
-	          "Don't yet have an account?"
-	        )
+	          'h2',
+	          null,
+	          'Log In'
+	        ),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Username:'
+	        ),
+	        _react2.default.createElement('input', { type: 'text', ref: function ref(node) {
+	            return username = node;
+	          } }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Password:'
+	        ),
+	        _react2.default.createElement('input', { type: 'password', ref: function ref(node) {
+	            return password = node;
+	          } }),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', onClick: this.toggleForm },
+	          'Don\'t yet have an account?'
+	        ),
+	        _react2.default.createElement('input', { type: 'submit', onClick: function onClick(e) {
+	            return _this2.handleLogin(e, username, password);
+	          } })
 	      );
 	      var Signup = _react2.default.createElement(
-	        "form",
-	        { className: "signup" },
-	        _react2.default.createElement("input", { type: "text" }),
-	        _react2.default.createElement("input", { type: "password" }),
-	        _react2.default.createElement("input", { type: "password" }),
+	        'form',
+	        { className: 'signup' },
 	        _react2.default.createElement(
-	          "a",
-	          { href: "#", onClick: this.toggleForm },
-	          "Already have an account?"
-	        )
+	          'h2',
+	          null,
+	          'Sign Up'
+	        ),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Username:'
+	        ),
+	        _react2.default.createElement('input', { type: 'text', ref: function ref(node) {
+	            return username = node;
+	          } }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Password:'
+	        ),
+	        _react2.default.createElement('input', { type: 'password', ref: function ref(node) {
+	            return password = node;
+	          } }),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Repeat Password:'
+	        ),
+	        _react2.default.createElement('input', { type: 'password', ref: function ref(node) {
+	            return passwordConfirm = node;
+	          } }),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', onClick: this.toggleForm },
+	          'Already have an account?'
+	        ),
+	        _react2.default.createElement('input', { type: 'submit', onClick: function onClick(e) {
+	            return _this2.handleSignup(e);
+	          } })
 	      );
 	      return _react2.default.createElement(
-	        "div",
-	        null,
+	        'div',
+	        { className: 'signin' },
 	        this.state.hasAccount ? Login : Signup
 	      );
 	    }

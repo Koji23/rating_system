@@ -1,11 +1,11 @@
 // SCSS Globals
-@import './scss_config/normalize';
+@import './sass_utils/normalize';
 
-$main-font: 'Roboto', sans-serif;
-$a-color: #000;
-$b-color: #000;
-$c-color: #000;
-$bg-color:
+$main-font: 'Roboto' sans-serif;
+$a-color: #FF6347; // tomato red
+$b-color: #FFE97D; // light yellow
+$c-color: #FFD1EF; // light purple
+$bg-color: #FFF;
 // APP STYLES
 
 

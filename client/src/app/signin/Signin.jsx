@@ -8,11 +8,13 @@ class Signin extends React.Component {
     };
     this.toggleForm = this.toggleForm.bind(this);
   }
-  handleSignup() {
-
+  handleSignup(e, username, password, passwordConfirm) {
+    e.preventDefault();
+    console.log(username, password, passwordConfirm);
   }
-  handleLogin() {
-
+  handleLogin(e, username, password) {
+    e.preventDefault();
+    console.log(username.value, password.value);
   }
   toggleForm() {
     this.setState({
@@ -20,22 +22,38 @@ class Signin extends React.Component {
     })
   }
   render() {
+    let username = '';
+    let password = '';
+    let passwordConfirm = '';
     const Login = (
       <form className="login">
-        <input type="text" />
-        <input type="password" />
+        <h2>Log In</h2>
+        <label>Username:</label>
+        <input type="text" ref={node => username = node}/>
+        <label>Password:</label>
+        <input type="password" ref={node => password = node}/>
         <a href="#" onClick={this.toggleForm} >Don't yet have an account?</a>
+        <input type="submit" onClick={e => this.handleLogin(e, username, password)}/>
       </form>
     );
     const Signup = (
       <form className="signup">
-        <input type="text" />
-        <input type="password" />
-        <input type="password" />
+        <h2>Sign Up</h2>
+        <label>Username:</label>
+        <input type="text" ref={node => username = node}/>
+        <label>Password:</label>
+        <input type="password" ref={node => password = node}/>
+        <label>Repeat Password:</label>
+        <input type="password" ref={node => passwordConfirm = node}/>
         <a href="#" onClick={this.toggleForm} >Already have an account?</a>
+        <input type="submit" onClick={e => this.handleSignup(e)}/>
       </form>
     );
-    return (<div>{ this.state.hasAccount ? Login : Signup }</div>);
+    return (
+      <div className="signin">
+        { this.state.hasAccount ? Login : Signup }
+      </div>
+    );
   }
 }
 

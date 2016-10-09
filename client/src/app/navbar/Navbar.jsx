@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NavBar = (props) => {
+const Navbar = (props) => {
   return (
     <header>
       <h1>Rating System</h1>
@@ -15,6 +15,4 @@ const NavBar = (props) => {
   );
 }
 
-export default NavBar;
-          // <li><Link to="/login">Login</Link></li>
-          // <li><Link to="/signUp">Sign Up</Link></li>
+export default Navbar;

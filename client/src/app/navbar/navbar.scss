@@ -2,7 +2,8 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #3b5998;
+  align-items: center;
+  background-color: $a-color;
   h1 {
     padding-left: 5%;
     color: #FFF;
@@ -16,14 +17,23 @@ header {
       display: flex;
     }
     li {
-      margin-top: 0.5em;
+      margin:0 1em;
       list-style-type: none;
+    }
+    h1 {
+      font-size: 1.5em;
     }
     a {
       color: #FFF;
       font-weight: 300;
-      font-size: 1.7em;
+      font-size: 1.2em;
       text-decoration: none;
+      &:hover {
+        color: $b-color;
+      }
+      &:active {
+        color: $c-color;
+      }
     }
   }
 }
