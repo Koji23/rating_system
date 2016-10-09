@@ -18,7 +18,7 @@ module.exports = {
       query:{
         presets: ['es2015', 'react',]
       },
-      test: /\.jsx$/,  
+      test: /\.jsx*$/,  
     }]
   },
   resolve: {

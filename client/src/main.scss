@@ -1,0 +1,17 @@
+// SCSS Globals
+@import './scss_config/normalize';
+
+$main-font: 'Roboto', sans-serif;
+$a-color: #000;
+$b-color: #000;
+$c-color: #000;
+$bg-color:
+// APP STYLES
+
+
+// COMPONENT STYLES
+// Note: npm 'dev-sass' script will recursively track all child sass files
+// however saving them will produce extraneous dev-only css files in the styles folder  
+// folder when saved. Run the npm 'pro-sass' script to generate a final uglified
+// stylesheet and wipe all other css files before pushing to production.
+@import './app/app.scss';

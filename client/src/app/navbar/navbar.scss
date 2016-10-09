@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #3b5998;
+  h1 {
+    padding-left: 5%;
+    color: #FFF;
+
+  }
+  nav {
+    padding-right: 5%;
+    display: flex;
+    flex-direction: row;
+    ul{
+      display: flex;
+    }
+    li {
+      margin-top: 0.5em;
+      list-style-type: none;
+    }
+    a {
+      color: #FFF;
+      font-weight: 300;
+      font-size: 1.7em;
+      text-decoration: none;
+    }
+  }
+}
