@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 var s = require('./secrets.js');
-
+console.log('~~~~~~', s);
 var db = new Sequelize(s.database,  s.username, s.password, {
   host: s.host,
   port: s.port,
