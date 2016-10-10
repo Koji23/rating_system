@@ -1,8 +1,10 @@
+// Populate Database Connection Details here
+
 const secrets = {
   database: 'ratingSystem',
-  username: 'root',
-  password: 'abcd1234',
-  host: 'getable.c0eor5cjwn0u.us-west-1.rds.amazonaws.com',
+  username: '', // update
+  password: '', // update
+  host: '', // update
   port: 3306,
 };
 
