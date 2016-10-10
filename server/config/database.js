@@ -12,7 +12,6 @@ db.authenticate()
   console.log('Connection has been established successfully.', msg);
 })
 .catch(function (err) {
-  db.query('CREATE DATABASE JKC');
   console.log('Unable to connect to the database:', err);
 });
 
