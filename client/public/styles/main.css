@@ -417,6 +417,8 @@ header {
   header h1 {
     padding-left: 5%;
     color: #FFF; }
+  header span {
+    color: #FFF; }
   header nav {
     padding-right: 5%;
     display: flex;

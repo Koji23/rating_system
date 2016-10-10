@@ -7,7 +7,9 @@ header {
   h1 {
     padding-left: 5%;
     color: #FFF;
-
+  }
+  span {
+    color: #FFF;
   }
   nav {
     padding-right: 5%;
@@ -17,7 +19,7 @@ header {
       display: flex;
     }
     li {
-      margin:0 1em;
+      margin: 0 1em;
       list-style-type: none;
     }
     h1 {

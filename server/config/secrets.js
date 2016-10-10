@@ -1,8 +1,8 @@
 const secrets = {
-  database: 'getable',
+  database: 'ratingSystem',
   username: 'root',
-  password: 'cake',
-  host: '127.0.0.1',
+  password: 'abcd1234',
+  host: 'getable.c0eor5cjwn0u.us-west-1.rds.amazonaws.com',
   port: 3306,
 };
 

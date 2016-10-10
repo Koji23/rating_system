@@ -6,11 +6,11 @@ const Navbar = (props) => {
   return (
     <header>
       <h1>Rating System</h1>
+      <span>{props.username}</span>
       <nav>
         <ul>
-          <li><Link to="/">Signin</Link></li>
+          <li><Link to="/">Sign in</Link></li>
           <li><Link to="/restaurants">Restaurants</Link></li>
-          <li><span>{props.username}</span></li>
         </ul>
       </nav>
     </header>

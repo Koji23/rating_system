@@ -30332,6 +30332,11 @@
 	      'Rating System'
 	    ),
 	    _react2.default.createElement(
+	      'span',
+	      null,
+	      props.username
+	    ),
+	    _react2.default.createElement(
 	      'nav',
 	      null,
 	      _react2.default.createElement(
@@ -30343,7 +30348,7 @@
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/' },
-	            'Signin'
+	            'Sign in'
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -30353,15 +30358,6 @@
 	            _reactRouter.Link,
 	            { to: '/restaurants' },
 	            'Restaurants'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            props.username
 	          )
 	        )
 	      )
@@ -30479,7 +30475,7 @@
 	          { href: '#', onClick: this.toggleForm },
 	          'Don\'t yet have an account?'
 	        ),
-	        _react2.default.createElement('input', { type: 'submit', onClick: function onClick(e) {
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit', onClick: function onClick(e) {
 	            return _this2.handleLogin(e, username.value, password.value);
 	          } })
 	      );
@@ -30520,7 +30516,7 @@
 	          { href: '#', onClick: this.toggleForm },
 	          'Already have an account?'
 	        ),
-	        _react2.default.createElement('input', { type: 'submit', onClick: function onClick(e) {
+	        _react2.default.createElement('input', { type: 'submit', value: 'Submit', onClick: function onClick(e) {
 	            return _this2.handleSignup(e, username.value, password.value, passwordConfirm.value);
 	          } })
 	      );
@@ -31262,7 +31258,7 @@
 	          });
 	        })();
 	      } else {
-	        console.log(this.props.user_id);
+	        alert("You must be signed in to rate a restaurant");
 	      }
 	    }
 	  }, {

@@ -66,7 +66,7 @@ class RestaurantsListEntry extends React.Component {
         console.log(err);
       })
     } else {
-      console.log(this.props.user_id);
+      alert("You must be signed in to rate a restaurant");
     }
   }
   handleInputChange (e, score) {

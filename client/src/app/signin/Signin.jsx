@@ -38,7 +38,7 @@ class Signin extends React.Component {
         <label>Password:</label>
         <input type="password" ref={node => password = node}/>
         <a href="#" onClick={this.toggleForm} >Don't yet have an account?</a>
-        <input type="submit" onClick={e => this.handleLogin(e, username.value, password.value)}/>
+        <input type="submit" value="Submit" onClick={e => this.handleLogin(e, username.value, password.value)}/>
       </form>
     );
     const Signup = (
@@ -51,7 +51,7 @@ class Signin extends React.Component {
         <label>Repeat Password:</label>
         <input type="password" ref={node => passwordConfirm = node}/>
         <a href="#" onClick={this.toggleForm} >Already have an account?</a>
-        <input type="submit" onClick={e => this.handleSignup(e, username.value, password.value, passwordConfirm.value)}/>
+        <input type="submit" value="Submit" onClick={e => this.handleSignup(e, username.value, password.value, passwordConfirm.value)}/>
       </form>
     );
     return (
