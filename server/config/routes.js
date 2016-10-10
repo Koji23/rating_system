@@ -14,9 +14,10 @@ module.exports = function(app, express) {
     restaurantsController.getAllRestaurants(req, res);
   });
   app.post('/api/rating', function(req, res) {
+    console.log('~~~~~~~~~~~~~~~SDFA~~~~~~~~');
     ratingsController.postRating(req, res);
   });
-  app.get('/api/ratingAvg', function(req, res) {
+  app.put('/api/ratingAvg', function(req, res) {
     ratingsController.getAvgRating(req, res);
   });
   app.get('/*', (req, res) => {

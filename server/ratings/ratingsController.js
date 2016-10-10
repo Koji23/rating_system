@@ -4,6 +4,7 @@ var Restaurants = require('../restaurants/restaurantsModel.js');
 
 module.exports = {
   postRating: function(req, res) {
+    console.log('heard from post Rating!!!!');
     Ratings.findOne({
       where: {
          $and: {
@@ -24,22 +25,25 @@ module.exports = {
         });
       } else {
         res.json({
-          msg: "User user has already rated this restaurant",
+          msg: "You have already rated this restaurant",
         });
       }
     });
   }, 
   getAvgRating: function(req, res) {
-    //return avg rating an num of ratings
     Ratings.findAll({
       where: {
         restaurant_id: req.body.restaurant_id,
       }
     })
     .then(function(ratings) {
+      var averageRating = ratings.length > 0 ? ratings.reduce(function(sum, rating) {
+        return sum + rating.rating;
+      }, 0) / ratings.length : 0;
       res.json({
+        id: req.body.restaurant_id,
         num: ratings.length,
-        data: ratings,
+        avg: averageRating,
       })
     });
   }

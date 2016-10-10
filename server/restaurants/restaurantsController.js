@@ -4,7 +4,6 @@ module.exports = {
   getAllRestaurants: function(req, res) {
     Restaurants.findAll()
     .then(function(restaurants){
-      console.log(restaurants);
        res.json(restaurants);
     })
     .catch(function(err){

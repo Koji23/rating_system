@@ -91,7 +91,7 @@
 	
 	var _RestaurantsList2 = _interopRequireDefault(_RestaurantsList);
 	
-	var _rootReducer = __webpack_require__(279);
+	var _rootReducer = __webpack_require__(280);
 	
 	var _rootReducer2 = _interopRequireDefault(_rootReducer);
 	
@@ -30371,7 +30371,7 @@
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    username: 'anon'
+	    username: state.signin.username
 	  };
 	};
 	
@@ -31081,88 +31081,261 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(250);
 	
 	var _RestaurantsListEntry = __webpack_require__(278);
 	
 	var _RestaurantsListEntry2 = _interopRequireDefault(_RestaurantsListEntry);
 	
+	var _restaurants_actions = __webpack_require__(279);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RestaurantsList = function RestaurantsList() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'restaurantsList' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'subHeader' },
-	      'Restaurants:'
-	    ),
-	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(_RestaurantsListEntry2.default, null)
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(_RestaurantsListEntry2.default, null)
-	      )
-	    )
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	exports.default = RestaurantsList;
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var RestaurantsList = function (_React$Component) {
+	  _inherits(RestaurantsList, _React$Component);
+	
+	  function RestaurantsList(props) {
+	    _classCallCheck(this, RestaurantsList);
+	
+	    var _this = _possibleConstructorReturn(this, (RestaurantsList.__proto__ || Object.getPrototypeOf(RestaurantsList)).call(this, props));
+	
+	    _this.props.dispatchFetchRestaurants();
+	    return _this;
+	  }
+	
+	  _createClass(RestaurantsList, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'restaurantsList' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'subHeader' },
+	          'Restaurants:'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          this.props.restaurants.map(function (restaurant) {
+	            return _react2.default.createElement(_RestaurantsListEntry2.default, { key: restaurant.id, data: restaurant });
+	          })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return RestaurantsList;
+	}(_react2.default.Component);
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    restaurants: state.restaurantsList
+	  };
+	};
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    dispatchFetchRestaurants: function dispatchFetchRestaurants() {
+	      dispatch((0, _restaurants_actions.fetchRestaurants)());
+	    }
+	  };
+	};
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(RestaurantsList);
 
 /***/ },
 /* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRedux = __webpack_require__(250);
+	
+	var _isomorphicFetch = __webpack_require__(275);
+	
+	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RestaurantsListEntry = function RestaurantsListEntry() {
-	  var handleRating = function handleRating(e, rating) {
-	    console.log(rating.value);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import { fetchAvg  Rating } from './restaurants_actions.js';
+	
+	
+	var RestaurantsListEntry = function (_React$Component) {
+	  _inherits(RestaurantsListEntry, _React$Component);
+	
+	  function RestaurantsListEntry(props) {
+	    _classCallCheck(this, RestaurantsListEntry);
+	
+	    var _this = _possibleConstructorReturn(this, (RestaurantsListEntry.__proto__ || Object.getPrototypeOf(RestaurantsListEntry)).call(this, props));
+	
+	    _this.state = {
+	      numRatings: 0,
+	      avgRating: 0,
+	      score: 3
+	    };
+	    _this.fetchAvgRating(_this.props.data.id);
+	    return _this;
+	  }
+	
+	  _createClass(RestaurantsListEntry, [{
+	    key: 'fetchAvgRating',
+	    value: function fetchAvgRating(restaurant_id) {
+	      var context = this;
+	      var request = (0, _isomorphicFetch2.default)('http://localhost:3000/api/ratingAvg', {
+	        method: 'PUT',
+	        body: JSON.stringify({
+	          restaurant_id: restaurant_id
+	        }),
+	        headers: {
+	          'Content-Type': 'application/json'
+	        }
+	      }).then(function (res) {
+	        return res.json();
+	      }).then(function (res) {
+	        context.setState({
+	          numRatings: res.num,
+	          avgRating: res.avg
+	        });
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'postRating',
+	    value: function postRating(e, score) {
+	      var _this2 = this;
+	
+	      console.log('posting rating...', JSON.stringify({
+	        rating: score.value,
+	        user_id: this.props.user_id,
+	        restaurant_id: this.props.data.id
+	      }));
+	      if (this.props.user_id) {
+	        (function () {
+	          var context = _this2;
+	          var request = (0, _isomorphicFetch2.default)('http://localhost:3000/api/rating', {
+	            method: 'POST',
+	            body: JSON.stringify({
+	              rating: score.value,
+	              user_id: _this2.props.user_id,
+	              restaurant_id: _this2.props.data.id
+	            }),
+	            headers: {
+	              'Content-Type': 'application/json'
+	            }
+	          }).then(function (res) {
+	            return res.json();
+	          }).then(function (res) {
+	            if (res.msg) {
+	              alert(res.msg);
+	            } else {
+	              context.fetchAvgRating(_this2.props.data.id);
+	            }
+	          }).catch(function (err) {
+	            console.log(err);
+	          });
+	        })();
+	      } else {
+	        console.log(this.props.user_id);
+	      }
+	    }
+	  }, {
+	    key: 'handleInputChange',
+	    value: function handleInputChange(e, score) {
+	      this.setState({
+	        score: score.value
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+	
+	      var score = void 0;
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'restaurantsListEntry' },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          this.props.data.name
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'details' },
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'Number of ratings: ',
+	            this.state.numRatings
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            'Average rating: ',
+	            this.state.avgRating
+	          )
+	        ),
+	        _react2.default.createElement('img', { src: this.props.data.imageURL }),
+	        _react2.default.createElement('input', { type: 'range', ref: function ref(node) {
+	            return score = node;
+	          }, onChange: function onChange(e) {
+	            return _this3.handleInputChange.bind(_this3)(e, score);
+	          }, min: '0', max: '5' }),
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          'Your Rating: ',
+	          this.state.score
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: function onClick(e) {
+	              return _this3.postRating(e, score);
+	            } },
+	          'Save'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return RestaurantsListEntry;
+	}(_react2.default.Component);
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    rating: state.restaurantsList.ratings,
+	    user_id: state.signin.id
 	  };
-	  var rating = void 0;
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "restaurantsListEntry" },
-	    _react2.default.createElement(
-	      "h3",
-	      null,
-	      "Souplantation"
-	    ),
-	    _react2.default.createElement("img", { src: "https://www.mnkysoft.com/dev116/usercontent/XImages/Catering-Spread_med.jpg" }),
-	    _react2.default.createElement("input", { type: "range", ref: function ref(node) {
-	        return rating = node;
-	      }, min: "0", max: "10" }),
-	    _react2.default.createElement(
-	      "button",
-	      { onClick: function onClick(e) {
-	          return handleRating(e, rating);
-	        } },
-	      "Save"
-	    )
-	  );
 	};
 	
-	exports.default = RestaurantsListEntry;
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(RestaurantsListEntry);
 
 /***/ },
 /* 279 */
@@ -31173,20 +31346,38 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.fetchRestaurants = exports.FETCH_AVGRATING = exports.FETCH_RESTAURANTS = undefined;
 	
-	var _redux = __webpack_require__(236);
+	var _isomorphicFetch = __webpack_require__(275);
 	
-	var _signin_reducer = __webpack_require__(280);
-	
-	var _signin_reducer2 = _interopRequireDefault(_signin_reducer);
+	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootReducer = (0, _redux.combineReducers)({
-	  signin: _signin_reducer2.default
-	});
+	var FETCH_RESTAURANTS = exports.FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
+	var FETCH_AVGRATING = exports.FETCH_AVGRATING = 'FETCH_AVGRATING';
 	
-	exports.default = rootReducer;
+	var URL = 'http://localhost:3000/api';
+	
+	var fetchRestaurants = exports.fetchRestaurants = function fetchRestaurants() {
+	  var URL = 'http://localhost:3000/api';
+	  var request = (0, _isomorphicFetch2.default)(URL + '/restaurants', {
+	    method: 'GET',
+	    headers: {
+	      'Content-Type': 'application/json'
+	    }
+	  });
+	  return {
+	    type: FETCH_RESTAURANTS,
+	    payload: request.then(function (res) {
+	      return res.json();
+	    }).then(function (res) {
+	      return res;
+	    }).catch(function (err) {
+	      console.log(err);
+	    })
+	  };
+	};
 
 /***/ },
 /* 280 */
@@ -31198,27 +31389,80 @@
 	  value: true
 	});
 	
+	var _redux = __webpack_require__(236);
+	
+	var _signin_reducer = __webpack_require__(281);
+	
+	var _signin_reducer2 = _interopRequireDefault(_signin_reducer);
+	
+	var _restaurants_reducer = __webpack_require__(282);
+	
+	var _restaurants_reducer2 = _interopRequireDefault(_restaurants_reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var rootReducer = (0, _redux.combineReducers)({
+	  signin: _signin_reducer2.default,
+	  restaurantsList: _restaurants_reducer2.default
+	});
+	
+	exports.default = rootReducer;
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _signin_actions = __webpack_require__(274);
 	
 	var initUser = {
-	  username: ''
+	  username: '',
+	  id: ''
 	};
 	
 	exports.default = function () {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initUser;
 	  var action = arguments[1];
 	
-	  console.log(action);
 	  switch (action.type) {
 	    case _signin_actions.UPDATE_USERNAME:
-	      console.log('user reducer : ', action.payload);
 	      if (action.payload.username) {
+	        console.log('from reducer signin', action.payload);
 	        return Object.assign({}, state, {
-	          username: action.payload
+	          username: action.payload.username,
+	          id: action.payload.id
 	        });
 	      } else {
 	        return state;
 	      }
+	  }
+	  return state;
+	};
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _restaurants_actions = __webpack_require__(279);
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _restaurants_actions.FETCH_RESTAURANTS:
+	      return action.payload;
 	  }
 	  return state;
 	};

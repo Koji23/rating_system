@@ -2,19 +2,20 @@ import { UPDATE_USERNAME } from './signin_actions.js';
 
 const initUser = {
   username: '',
+  id: ''
 }
 
 export default (state = initUser, action) => {
-  console.log(action);
   switch(action.type) {
     case UPDATE_USERNAME:
-      console.log('user reducer : ', action.payload);
       if(action.payload.username) {
+        console.log('from reducer signin', action.payload);
         return Object.assign({}, state, {
-          username: action.payload,
+          username: action.payload.username,
+          id: action.payload.id
         });
       } else {
-        return state;
+        return state; 
       }
   }
   return state;

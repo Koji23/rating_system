@@ -19,7 +19,7 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    username: 'anon',
+    username: state.signin.username,
   }
 }
 

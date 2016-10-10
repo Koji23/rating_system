@@ -461,6 +461,12 @@ header {
       border-radius: 5px;
       height: 15  0px;
       width: 200px; }
+    .restaurantsList .restaurantsListEntry input[type="range"] {
+      width: 30%;
+      margin: 1em 0; }
+    .restaurantsList .restaurantsListEntry button {
+      width: 30%;
+      border-radius: 5px; }
 
 .signin {
   display: flex;
