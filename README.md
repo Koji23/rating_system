@@ -34,7 +34,7 @@ Restaurants
 Ratings
 - id
 - user_id * 
-_ restaurant_id *
+- restaurant_id *
 
 
 Usage Notes:
