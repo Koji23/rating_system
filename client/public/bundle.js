@@ -30563,7 +30563,7 @@
 	
 	var UPDATE_USERNAME = exports.UPDATE_USERNAME = 'UPDATE_USERNAME';
 	
-	var URL = 'http://localhost:3000/api';
+	var URL = 'https://stark-woodland-81772.herokuapp.com';
 	
 	var signupUser = exports.signupUser = function signupUser(username, password) {
 	  console.log(username, password);
@@ -31203,7 +31203,7 @@
 	    key: 'fetchAvgRating',
 	    value: function fetchAvgRating(restaurant_id) {
 	      var context = this;
-	      var request = (0, _isomorphicFetch2.default)('http://localhost:3000/api/ratingAvg', {
+	      var request = (0, _isomorphicFetch2.default)('https://stark-woodland-81772.herokuapp.com/api/ratingAvg', {
 	        method: 'PUT',
 	        body: JSON.stringify({
 	          restaurant_id: restaurant_id
@@ -31353,10 +31353,8 @@
 	var FETCH_RESTAURANTS = exports.FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
 	var FETCH_AVGRATING = exports.FETCH_AVGRATING = 'FETCH_AVGRATING';
 	
-	var URL = 'http://localhost:3000/api';
-	
 	var fetchRestaurants = exports.fetchRestaurants = function fetchRestaurants() {
-	  var URL = 'http://localhost:3000/api';
+	  var URL = 'https://stark-woodland-81772.herokuapp.com/api';
 	  var request = (0, _isomorphicFetch2.default)(URL + '/restaurants', {
 	    method: 'GET',
 	    headers: {
