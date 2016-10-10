@@ -4,7 +4,7 @@ export const FETCH_AVGRATING = 'FETCH_AVGRATING';
 
 
 export const fetchRestaurants = () => {
-  const URL = 'https://stark-woodland-81772.herokuapp.com/api';
+  const URL = 'http://localhost:3000/api';
   let request = fetch(`${URL}/restaurants`, {
     method: 'GET',
     headers: {

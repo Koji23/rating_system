@@ -1,7 +1,8 @@
 import fetch from 'isomorphic-fetch';
 export const UPDATE_USERNAME = 'UPDATE_USERNAME';
+import { browserHistory } from 'react-router';
 
-const URL = 'https://stark-woodland-81772.herokuapp.com';
+const URL = 'http://localhost:3000/api';
 
 export const signupUser = (username, password) => {
   console.log(username, password);
@@ -20,7 +21,12 @@ export const signupUser = (username, password) => {
     type: UPDATE_USERNAME,
     payload: request
     .then(res => res.json())
-    .then(res => res)
+    .then(res => {
+      if(res.username){
+        browserHistory.push('/restaurants');
+      }
+      return res;
+    })
     .catch(function(err) {
       console.log(err);
     })
@@ -46,7 +52,9 @@ export const loginUser = (username, password) => {
     payload: request
     .then(res => res.json())
     .then(res => {
-      console.log(res);
+      if(res.username){
+        browserHistory.push('/restaurants');
+      }
       return res;
     })
     .catch(function(err) {

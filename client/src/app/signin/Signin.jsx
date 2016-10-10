@@ -49,8 +49,9 @@ class Signin extends React.Component {
         <label>Password:</label>
         <input type="password" ref={node => password = node}/>
         <label>Repeat Password:</label>
+        <span></span>
         <input type="password" ref={node => passwordConfirm = node}/>
-        <a href="#" onClick={this.toggleForm} >Already have an account?</a>
+        <a href="#" onClick={this.toggleForm}   >Already have an account?</a>
         <input type="submit" value="Submit" onClick={e => this.handleSignup(e, username.value, password.value, passwordConfirm.value)}/>
       </form>
     );

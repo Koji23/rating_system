@@ -6,7 +6,7 @@ const Navbar = (props) => {
   return (
     <header>
       <h1>Rating System</h1>
-      <span>{props.username}</span>
+      <span>{props.username ? 'Welcome: ' + props.username: ''}</span>
       <nav>
         <ul>
           <li><Link to="/">Sign in</Link></li>

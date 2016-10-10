@@ -4,7 +4,6 @@ var Restaurants = require('../restaurants/restaurantsModel.js');
 
 module.exports = {
   postRating: function(req, res) {
-    console.log('heard from post Rating!!!!');
     Ratings.findOne({
       where: {
          $and: {

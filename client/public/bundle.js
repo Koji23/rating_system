@@ -30334,7 +30334,7 @@
 	    _react2.default.createElement(
 	      'span',
 	      null,
-	      props.username
+	      props.username ? 'Welcome: ' + props.username : ''
 	    ),
 	    _react2.default.createElement(
 	      'nav',
@@ -30508,6 +30508,7 @@
 	          null,
 	          'Repeat Password:'
 	        ),
+	        _react2.default.createElement('span', null),
 	        _react2.default.createElement('input', { type: 'password', ref: function ref(node) {
 	            return passwordConfirm = node;
 	          } }),
@@ -30559,11 +30560,14 @@
 	
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 	
+	var _reactRouter = __webpack_require__(173);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var UPDATE_USERNAME = exports.UPDATE_USERNAME = 'UPDATE_USERNAME';
 	
-	var URL = 'https://stark-woodland-81772.herokuapp.com';
+	
+	var URL = 'http://localhost:3000/api';
 	
 	var signupUser = exports.signupUser = function signupUser(username, password) {
 	  console.log(username, password);
@@ -30583,6 +30587,9 @@
 	    payload: request.then(function (res) {
 	      return res.json();
 	    }).then(function (res) {
+	      if (res.username) {
+	        _reactRouter.browserHistory.push('/restaurants');
+	      }
 	      return res;
 	    }).catch(function (err) {
 	      console.log(err);
@@ -30608,7 +30615,9 @@
 	    payload: request.then(function (res) {
 	      return res.json();
 	    }).then(function (res) {
-	      console.log(res);
+	      if (res.username) {
+	        _reactRouter.browserHistory.push('/restaurants');
+	      }
 	      return res;
 	    }).catch(function (err) {
 	      console.log(err);
@@ -31203,7 +31212,7 @@
 	    key: 'fetchAvgRating',
 	    value: function fetchAvgRating(restaurant_id) {
 	      var context = this;
-	      var request = (0, _isomorphicFetch2.default)('https://stark-woodland-81772.herokuapp.com/api/ratingAvg', {
+	      var request = (0, _isomorphicFetch2.default)('http://localhost:3000/api/ratingAvg', {
 	        method: 'PUT',
 	        body: JSON.stringify({
 	          restaurant_id: restaurant_id
@@ -31354,7 +31363,7 @@
 	var FETCH_AVGRATING = exports.FETCH_AVGRATING = 'FETCH_AVGRATING';
 	
 	var fetchRestaurants = exports.fetchRestaurants = function fetchRestaurants() {
-	  var URL = 'https://stark-woodland-81772.herokuapp.com/api';
+	  var URL = 'http://localhost:3000/api';
 	  var request = (0, _isomorphicFetch2.default)(URL + '/restaurants', {
 	    method: 'GET',
 	    headers: {

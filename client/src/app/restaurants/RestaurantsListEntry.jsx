@@ -15,7 +15,7 @@ class RestaurantsListEntry extends React.Component {
   }
   fetchAvgRating (restaurant_id) {
     let context = this;
-    let request = fetch('https://stark-woodland-81772.herokuapp.com/api/ratingAvg', {
+    let request = fetch('http://localhost:3000/api/ratingAvg', {
       method: 'PUT',
       body: JSON.stringify({
         restaurant_id: restaurant_id,
