@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 export const UPDATE_USERNAME = 'UPDATE_USERNAME';
 
-const URL = 'http://localhost:3000/api';
+const URL = 'https://stark-woodland-81772.herokuapp.com';
 
 export const signupUser = (username, password) => {
   console.log(username, password);

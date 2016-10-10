@@ -2,10 +2,9 @@ import fetch from 'isomorphic-fetch';
 export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
 export const FETCH_AVGRATING = 'FETCH_AVGRATING';
 
-const URL = 'http://localhost:3000/api';
 
 export const fetchRestaurants = () => {
-  const URL = 'http://localhost:3000/api';
+  const URL = 'https://stark-woodland-81772.herokuapp.com/api';
   let request = fetch(`${URL}/restaurants`, {
     method: 'GET',
     headers: {
