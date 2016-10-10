@@ -14,7 +14,7 @@ Start up instructions:
     with the default credentials provided below:
     username: 'user'
     password: '1234' 
-    
+
 6.) Rudimentary testing framework is setup for client. 
     npm test (while app is running)
 
@@ -33,8 +33,8 @@ Restaurants
 
 Ratings
 - id
-- user_id *
-_ restaurant_idd *
+- user_id * 
+_ restaurant_id *
 
 
 Usage Notes:
